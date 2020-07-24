@@ -17,8 +17,28 @@ class Board
     puts " #{self.cells[6]} | #{self.cells[7]} | #{self.cells[8]} "
   end
   
-  def position
-    binding.pry
+  def position(input)
+    self.cells[input.strip.to_i - 1]
+  end
+  
+  def full?
+    self.cells.include?(" ") ? false : true
+  end
+  
+  def turn_count
+    self.cells.select { |cell| cell != " " }.count
+  end
+  
+  def taken?(input)
+    self.position(input) == " " ? false : true
+  end
+  
+  def valid_move?(input)
+    self.taken?(input) || !input.strip.to_i.between?(1, 9) ? false : true
+  end
+  
+  def update(input, player)
+    self.cells[input.strip.to_i - 1] = player.token
   end
   
 end
