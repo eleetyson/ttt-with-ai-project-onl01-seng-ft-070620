@@ -7,7 +7,7 @@ class Game
   [0,4,8], [2,4,6]
   ]
   
-  def initialize(board = Board.new, player_1 = Player.new("X"), player_2 = Player.new("O"))
+  def initialize(board = Board.new, player_1 = Player.new("O"), player_2 = Player.new("X"))
     @board = board
     @player_1 = player_1
     @player_2 = player_2
